@@ -4,6 +4,7 @@
 @import 'normalize';
 @import 'mixins';
 @import 'slick';
+@import 'menu';
 
 * {
     box-sizing: border-box;
@@ -12,7 +13,10 @@
 html{
     height: 100%;
     font-size: 10px;
+   
 }
+
+
 
 body {
     min-height: 100%;
@@ -34,7 +38,10 @@ body {
         background-position: center;
     }
 
-    
+    @media screen and (max-width: 576px){
+        padding: 40px 0;
+    }
+
 }
 
 .cover{
@@ -125,6 +132,8 @@ body {
         overflow: hidden;
         padding: 5% 0 0 0;
     }
+
+       
     .sizer{
         width: 5%;
     }
@@ -137,11 +146,25 @@ body {
         position: relative;
         border-radius: 10px;
         margin-bottom: 5%;
+
+        @media screen and (max-width: 576px){
+            width: 95%;
+            padding-top: 70%;
+        }
+
+
         &--wide{
             width: 55%;
+            @media screen and (max-width: 576px){
+                width: 95%;
+            }
+    
         }
         &--tall{
             padding-top: 37%;
+            @media screen and (max-width: 576px){
+                padding-top: 70%;
+            }
         }
 
     }

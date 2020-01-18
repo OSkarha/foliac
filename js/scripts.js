@@ -40,6 +40,29 @@ $(document).ready(() => {
         $(e.target).addClass('active')
     })
 
+    $('.toggler').on('click', (e)=>{
+        e.preventDefault();
 
+        $('body').toggleClass('menu-opened');
+    })
+
+    $('.menu__link').on('click', (e)=>{
+        
+        $('body').removeClass('menu-opened');
+    })
+
+
+    let lastY=0;
+    $('.menu').on('touchstart', (e)=>{
+        lastY = e.originalEvent.touches[0].clientY;
+    });
+
+    $('.menu').on('touchend', (e)=>{
+        console.log(e)
+        let currentY = e.originalEvent.changedTouches[0].clientY;
+        if(currentY < lastY - 30) {
+            $('body').removeClass('menu-opened');
+        }
+    });
 
 })

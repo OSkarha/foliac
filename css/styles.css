@@ -393,6 +393,138 @@ template {
 .slick-arrow.slick-hidden {
   display: none; }
 
+html {
+  scroll-behavior: smooth; }
+
+.menu-opened {
+  overflow: hidden; }
+
+header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1; }
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.logo {
+  -webkit-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+  -webkit-transition: all .4s ease-in;
+  -o-transition: all .4s ease-in;
+  transition: all .4s ease-in;
+  font-size: 0; }
+  .logo.active, .logo:hover, .logo:focus, .logo:active {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    transform: scale(0.9); }
+
+.toggler {
+  display: none;
+  font-size: 0; }
+  @media screen and (max-width: 960px) {
+    .toggler {
+      display: block;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1;
+      -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition: all .4s ease-in;
+      -o-transition: all .4s ease-in;
+      transition: all .4s ease-in; }
+      .menu-opened .toggler {
+        -webkit-transform: rotate(135deg);
+        -ms-transform: rotate(135deg);
+        -o-transform: rotate(135deg);
+        transform: rotate(135deg); } }
+
+.menu {
+  list-style: none;
+  text-transform: capitalize;
+  padding: 0; }
+  @media screen and (max-width: 960px) {
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #3c4955;
+      padding: 20px;
+      margin: 0;
+      -webkit-transform: translate(0, -100%);
+      -ms-transform: translate(0, -100%);
+      -o-transform: translate(0, -100%);
+      transform: translate(0, -100%);
+      opacity: 0;
+      min-height: 100vh;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+      .menu-opened .menu {
+        -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        -o-transform: translate(0, 0);
+        transform: translate(0, 0);
+        opacity: 1; } }
+  .menu__item {
+    display: inline-block;
+    margin-left: 40px; }
+    .menu__item + .menu__item:before {
+      content: '';
+      height: 20px;
+      border-left: 1px solid rgba(255, 255, 255, 0.5);
+      -webkit-transform: rotate(15deg) translate(0, 3px);
+      -ms-transform: rotate(15deg) translate(0, 3px);
+      -o-transform: rotate(15deg) translate(0, 3px);
+      transform: rotate(15deg) translate(0, 3px);
+      position: absolute; }
+    @media screen and (max-width: 960px) {
+      .menu__item {
+        display: block;
+        text-align: center;
+        padding: 20px;
+        margin: 0; }
+        .menu__item + .menu__item:before {
+          display: none; } }
+  .menu__link {
+    padding: 10px 20px 10px 60px;
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    -webkit-transition: all .4s ease-in;
+    -o-transition: all .4s ease-in;
+    transition: all .4s ease-in; }
+    .menu__link.active, .menu__link:hover, .menu__link:focus, .menu__link:active {
+      color: #48bf72; }
+    @media screen and (max-width: 960px) {
+      .menu__link {
+        padding: 10px;
+        font-size: 2em; } }
+
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
@@ -421,6 +553,9 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center; }
+  @media screen and (max-width: 576px) {
+    .section {
+      padding: 40px 0; } }
 
 .cover {
   min-height: 100vh;
@@ -520,10 +655,20 @@ body {
     position: relative;
     border-radius: 10px;
     margin-bottom: 5%; }
+    @media screen and (max-width: 576px) {
+      .portfolio__item {
+        width: 95%;
+        padding-top: 70%; } }
     .portfolio__item--wide {
       width: 55%; }
+      @media screen and (max-width: 576px) {
+        .portfolio__item--wide {
+          width: 95%; } }
     .portfolio__item--tall {
       padding-top: 37%; }
+      @media screen and (max-width: 576px) {
+        .portfolio__item--tall {
+          padding-top: 70%; } }
   .portfolio__img {
     position: absolute;
     top: 50%;
